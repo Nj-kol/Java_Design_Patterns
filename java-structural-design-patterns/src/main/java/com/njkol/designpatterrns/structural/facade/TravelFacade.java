@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class TravelFacade {
 
+	// Sub systems
 	private HotelBooker hotelBooker;   
 	private FlightBooker flightBooker;  
 	

@@ -9,9 +9,10 @@
 ## Components
 
 * The components of this design pattern are :
-   i. **Facade**          - The Facade hiding subsystems
-  ii. **Subsystem**       - The sub systems
- iii. **Client**          - Client using the Facade
+
+1. **Facade**          - The Facade hiding subsystems
+2. **Subsystem**       - The sub systems
+3. **Client**          - Client using the Facade
  
 ## When Would I Use This Pattern?
 
@@ -19,8 +20,12 @@
   For example, in web services, one web service might provide access to a number of smaller services that have been hidden from the caller by the facade
   
 ## Examples
+
 * Tika class in Apache Tika
 
 ## References
+
 https://dzone.com/articles/design-patterns-uncovered-1
+
 https://www.journaldev.com/1557/facade-design-pattern-in-java
+
