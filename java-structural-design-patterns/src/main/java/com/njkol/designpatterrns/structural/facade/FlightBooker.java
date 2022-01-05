@@ -1,13 +1,15 @@
 package com.njkol.designpatterrns.structural.facade;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 //Sub system 1
 public class FlightBooker {
 
-	public ArrayList<Flight> getFlightsFor(Date from, Date to) {
+	public List<Flight> getFlightsFor(Date from, Date to) {
 		// returns flights available in the particular date range
-		return null;
+		List<Flight> available = Arrays.asList(new Flight("Emirates", "EX1224"), new Flight("Qatar", "QA1224"));
+		return available;
 	}
 }

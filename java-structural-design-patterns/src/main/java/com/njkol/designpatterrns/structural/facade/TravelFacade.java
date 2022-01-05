@@ -2,6 +2,7 @@ package com.njkol.designpatterrns.structural.facade;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -13,12 +14,12 @@ import java.util.Date;
 public class TravelFacade {
 
 	// Sub systems
-	private HotelBooker hotelBooker;   
-	private FlightBooker flightBooker;  
+	private HotelBooker hotelBooker = new  HotelBooker();   
+	private FlightBooker flightBooker= new FlightBooker();  
 	
-	public void makeTrip(Date from, Date to)  {        
-		ArrayList<Flight> flights = flightBooker.getFlightsFor(from, to);        
-		ArrayList<Hotel> hotels = hotelBooker.getHotelsFor(from, to);        
-		//process and return   
+	public Trip makeTrip(Date from, Date to)  {        
+		List<Flight> flights = flightBooker.getFlightsFor(from, to);        
+		List<Hotel> hotels = hotelBooker.getHotelsFor(from, to);        
+		return new Trip(flights,hotels);
 	}
 }

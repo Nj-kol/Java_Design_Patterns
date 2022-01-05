@@ -1,13 +1,15 @@
 package com.njkol.designpatterrns.structural.facade;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
-//Sub system 1
+//Sub system 2
 public class HotelBooker {
 
-	public ArrayList<Hotel> getHotelsFor(Date from, Date to) {
+	public List<Hotel> getHotelsFor(Date from, Date to) {
 		// returns hotels available in the particular date range
-		return null;
+		List<Hotel> available = Arrays.asList(new Hotel("Lyyods",3),new Hotel("Sana Resort",4));
+		return available;
 	}
 }

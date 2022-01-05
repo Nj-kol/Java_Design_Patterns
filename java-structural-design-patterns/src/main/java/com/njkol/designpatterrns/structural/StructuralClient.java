@@ -20,8 +20,4 @@ public class StructuralClient {
 	
 	}
 
-	public static void testDecorator() {
-
-	}
-	
 }
