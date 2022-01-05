@@ -24,6 +24,7 @@
 * We should not use mediator pattern just to achieve lo0se-coupling because if the number of mediators will grow, then it will become hard to maintain them.
 
 ## Examples
+
 * java.util.Timer class scheduleXXX() methods
 * Java Concurrency Executor execute() method
 * java.lang.reflect.Method invoke() method
@@ -31,5 +32,7 @@
 
 
 ## References
+
 https://dzone.com/articles/design-patterns-mediator
+
 https://www.journaldev.com/1730/mediator-design-pattern-java
