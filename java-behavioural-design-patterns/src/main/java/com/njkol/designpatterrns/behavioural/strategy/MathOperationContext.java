@@ -1,10 +1,10 @@
 package com.njkol.designpatterrns.behavioural.strategy;
 
-public class Context {
+public class MathOperationContext {
 	
 	private Strategy strategy;
 
-	public Context(Strategy strategy) {
+	public MathOperationContext(Strategy strategy) {
 		this.strategy = strategy;
 	}
 

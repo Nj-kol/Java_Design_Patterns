@@ -8,7 +8,7 @@ import com.njkol.designpatterrns.behavioural.memento.Caretaker;
 import com.njkol.designpatterrns.behavioural.memento.FileWriterOriginator;
 import com.njkol.designpatterrns.behavioural.memento.GenericCaretaker;
 import com.njkol.designpatterrns.behavioural.memento.Originator;
-import com.njkol.designpatterrns.behavioural.strategy.Context;
+import com.njkol.designpatterrns.behavioural.strategy.MathOperationContext;
 import com.njkol.designpatterrns.behavioural.strategy.OperationAdd;
 import com.njkol.designpatterrns.behavioural.template.Cricket;
 import com.njkol.designpatterrns.behavioural.template.Football;
@@ -32,7 +32,7 @@ public class BehaviouralClient {
 
 	public static void testStrategy() {
 
-		Context context = new Context(new OperationAdd());
+		MathOperationContext context = new MathOperationContext(new OperationAdd());
 		int sum = context.executeStrategy(2, 2);
 		System.out.println(sum);
 	}
