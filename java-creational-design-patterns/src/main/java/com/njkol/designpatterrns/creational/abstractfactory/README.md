@@ -1,0 +1,4 @@
+# Abstract factory
+
+References
+==========
