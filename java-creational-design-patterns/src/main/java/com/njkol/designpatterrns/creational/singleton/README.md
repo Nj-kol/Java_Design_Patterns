@@ -8,13 +8,12 @@ The first thing to decide upon is whether you want to initialize Sington Eagerly
 
 ## Eager
 
-* Static factory (i.e with no synchronization or just single checking )
 * Static block initialization
-* Double checked Locking
 * Enum
 
 ## Lazy
 
+* Double checked Locking
 * Static Holder (This technique is also called Bill Pugh's Singleton)
 
 ## Serialization and Singleton
