@@ -14,6 +14,17 @@ It uses a technique called ***Double Dispatch***, which helps to execute the pro
 * Each **Concrete Element/Visitable** must implement the acceptance method. The purpose of this method is to redirect the call to the proper visitor’s method corresponding to the current element class. Be aware that even if a base element class implements this method, all subclasses must still override this method in their own classes and call the appropriate method on the visitor object
 * The **Client** usually represents a collection or some other complex object (for example, a Composite tree). Usually, clients aren’t aware of all the concrete element classes because they work with objects from that collection via some abstract interface
 
+## Examples
+
+Visitor isn’t a very common pattern because of its complexity and narrow applicability.
+
+Here are some examples of pattern in core Java libraries:
+
+* javax.lang.model.element.AnnotationValue and AnnotationValueVisitor
+* javax.lang.model.element.Element and ElementVisitor
+* javax.lang.model.type.TypeMirror and TypeVisitor
+* java.nio.file.FileVisitor and SimpleFileVisitor
+* javax.faces.component.visit.VisitContext and VisitCallback
 
 ## References
 
