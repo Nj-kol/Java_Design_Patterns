@@ -10,9 +10,9 @@ import com.njkol.designpatterrns.behavioural.memento.GenericCaretaker;
 import com.njkol.designpatterrns.behavioural.memento.Originator;
 import com.njkol.designpatterrns.behavioural.strategy.MathOperationContext;
 import com.njkol.designpatterrns.behavioural.strategy.OperationAdd;
-import com.njkol.designpatterrns.behavioural.template.Cricket;
-import com.njkol.designpatterrns.behavioural.template.Football;
-import com.njkol.designpatterrns.behavioural.template.Game;
+import com.njkol.designpatterrns.behavioural.template.Hoagie;
+import com.njkol.designpatterrns.behavioural.template.ItalianHoagie;
+import com.njkol.designpatterrns.behavioural.template.VeggieHoagie;
 
 /**
  * A client to test all Behavioural design patterns
@@ -39,11 +39,15 @@ public class BehaviouralClient {
 
 	public static void testTemplate() {
 
-		Game game = new Cricket();
-		game.play();
-		System.out.println("\n");
-		game = new Football();
-		game.play();
+		Hoagie cust12Hoagie = new ItalianHoagie();
+		
+		cust12Hoagie.makeSandwich();
+		
+		System.out.println();
+		
+		Hoagie cust13Hoagie = new VeggieHoagie();
+		
+		cust13Hoagie.makeSandwich();
 	}
 
 	public static void testMemento() {

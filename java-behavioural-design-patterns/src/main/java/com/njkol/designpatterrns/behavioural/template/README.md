@@ -18,11 +18,11 @@
   * **Hook methods**     : Methods containing a default implementation that may be overidden in some classes.Hook methods are intended to be overridden, concrete methods are not
   * **Template methods** : A method that calls any of the methods listed above in order to describe the algorithm without needing to implement the details
   
-## Components
 
-* The components of this design pattern are :
-   i. **AbstractTemplate** - Contains the templateMethod(), and the abstract methods ( & optional Hook methods )
-  ii. **ConcretTemplate**  - The actual implementations of template containing the Concrete methods
+The components of this design pattern are :
+
+1. **AbstractTemplate** - Contains the templateMethod(), and the abstract methods ( & optional Hook methods )
+2. **ConcretTemplate**  - The actual implementations of template containing the Concrete methods
  
 ## When Would I Use This Pattern?
 
@@ -33,9 +33,17 @@ The Template Method pattern is used when :
 * You want to control the point that subclassing is allowed
 
 ## Examples
+
 * All non-abstract methods of java.io.InputStream, java.io.OutputStream, java.io.Reader and java.io.Writer
 * All non-abstract methods of java.util.AbstractList, java.util.AbstractSet and java.util.AbstractMap
 * javax.servlet.http.HttpServlet, all the doXXX() methods by default sends a HTTP 405 "Method Not Allowed" error to the response. 
   You're free to implement none or any of them.
 * A generic ETL method, with a method doETL() making calls to extract, transform & load in sequence.
 
+References
+===========
+https://refactoring.guru/design-patterns/template-method
+
+https://www.journaldev.com/1763/template-method-design-pattern-in-java
+
+https://www.newthinktank.com/2012/10/template-method-design-pattern-tutorial/
