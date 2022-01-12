@@ -2,20 +2,23 @@ package com.njkol.designpatterrns.behavioural.chainofresp;
 
 public class AuthenticationMiddleWare extends Middleware {
 	
+	private Server server;
+	
     public AuthenticationMiddleWare(Server server) {
         this.server = server;
     }
 
     public String process(Request req) {
 		System.out.println("Inside Authenticator");
+		System.out.println("Next Processor in the chain is : " + next);
         if (!server.hasEmail(req.getEmail())) {
             System.out.println("This email is not registered!");
-            return server.getResponse(req);
+            throw new RuntimeException("This email is not registered!");
         }
         if (!server.isValidPassword(req.getEmail(), req.getPassword())) {
             System.out.println("Wrong password!");
-            return server.getResponse(req);
+            throw new RuntimeException("Wrong password!");
         }
-        return checkNext(req);
+        return this.checkNext(req);
     }
 }

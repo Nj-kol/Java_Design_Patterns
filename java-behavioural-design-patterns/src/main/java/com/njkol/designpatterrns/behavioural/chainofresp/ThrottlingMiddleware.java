@@ -8,11 +8,10 @@ public class ThrottlingMiddleware extends Middleware {
 	private int requestPerMinute;
 	private int request;
 	private long currentTime;
-
-	public ThrottlingMiddleware(int requestPerMinute, Server server) {
+	
+	public ThrottlingMiddleware(int requestPerMinute) {
 		this.requestPerMinute = requestPerMinute;
 		this.currentTime = System.currentTimeMillis();
-		this.server = server;
 	}
 
 	/**
@@ -26,6 +25,7 @@ public class ThrottlingMiddleware extends Middleware {
 	@Override
 	public String process(Request req) {
 		System.out.println("Inside throttler");
+		System.out.println("Next Processor in the chain is : " + next);
 		if (System.currentTimeMillis() > currentTime + 60_000) {
 			request = 0;
 			currentTime = System.currentTimeMillis();
@@ -36,6 +36,6 @@ public class ThrottlingMiddleware extends Middleware {
 			System.out.println("Request limit exceeded!");
 			Thread.currentThread().stop();
 		}
-		return checkNext(req);
+		return this.checkNext(req);
 	}
 }

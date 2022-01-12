@@ -1,5 +1,7 @@
 package com.njkol.designpatterrns.behavioural.chainofresp;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +20,7 @@ public class TestCOR {
 	public void testCORForSuccess() {
 
 		// Define the handlers
-		Middleware throttler = new ThrottlingMiddleware(2, server);
+		Middleware throttler = new ThrottlingMiddleware(10);
 		Middleware authenticator = new AuthenticationMiddleWare(server);
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
@@ -30,17 +32,17 @@ public class TestCOR {
 
 		Request admin = new Request("admin@example.com", "admin_pass", "pageA");
 		Request client = new Request("user@example.com", "user_pass", "pageB");
-		
+
 		System.out.println(server.handleRequest(admin));
 		System.out.println(server.handleRequest(client));
 		System.out.println("============================");
 	}
 
-	//@Test
+	@Test
 	public void testCORForAuthenticationFailure() {
 
 		// Define the handlers
-		Middleware throttler = new ThrottlingMiddleware(2, server);
+		Middleware throttler = new ThrottlingMiddleware(2);
 		Middleware authenticator = new AuthenticationMiddleWare(server);
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
@@ -52,7 +54,7 @@ public class TestCOR {
 
 		Request request = new Request("user@example.com", "dsds", "pageB");
 
-		System.out.println(server.handleRequest(request));
+		assertThrows(RuntimeException.class,() -> server.handleRequest(request));
 		System.out.println("============================");
 	}
 
@@ -60,20 +62,19 @@ public class TestCOR {
 	public void testCORForAuthorizationFailure() {
 
 		// Define the handlers
-		Middleware throttler = new ThrottlingMiddleware(2, server);
+		Middleware throttler = new ThrottlingMiddleware(2);
 		Middleware authenticator = new AuthenticationMiddleWare(server);
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
 		// Wire all the handlers
 		throttler.linkWith(authenticator).linkWith(authorizor);
-
+		
 		// Server gets a chain from client code.
 		server.setMiddleware(throttler);
 		
 		Request request = new Request("user@example.com", "user_pass","pageA");
 
-		System.out.println(server.handleRequest(request));
+		assertThrows(RuntimeException.class,() -> server.handleRequest(request));
 		System.out.println("============================");
 	}
-
 }
