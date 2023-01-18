@@ -25,7 +25,9 @@ public class TestCOR {
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
 		// Wire all the handlers
-		throttler.linkWith(authenticator).linkWith(authorizor);
+		throttler
+		.linkWith(authenticator)
+		.linkWith(authorizor);
 
 		// Server gets a chain from client code.
 		server.setMiddleware(throttler);
@@ -47,7 +49,9 @@ public class TestCOR {
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
 		// Wire all the handlers
-		throttler.linkWith(authenticator).linkWith(authorizor);
+		throttler
+		.linkWith(authenticator)
+		.linkWith(authorizor);
 
 		// Server gets a chain from client code.
 		server.setMiddleware(throttler);
@@ -67,7 +71,9 @@ public class TestCOR {
 		Middleware authorizor = new AuthorizationMiddleware(server);
 
 		// Wire all the handlers
-		throttler.linkWith(authenticator).linkWith(authorizor);
+		throttler
+		.linkWith(authenticator)
+		.linkWith(authorizor);
 		
 		// Server gets a chain from client code.
 		server.setMiddleware(throttler);

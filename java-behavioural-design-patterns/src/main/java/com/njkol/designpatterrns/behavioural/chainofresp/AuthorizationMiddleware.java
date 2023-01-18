@@ -9,7 +9,6 @@ public class AuthorizationMiddleware extends Middleware {
 	}
 
 	public String process(Request req) {
-
 		System.out.println("Inside Authorizer");
 		System.out.println("Next Processor in the chain is : " + next);
 		if (!server.isAuthorized(req)) {
